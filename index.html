@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Game Collection</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+    
+    body {
+      background-color: #1a1a2e;
+      color: #e6e6e6;
+    }
+    
+    header {
+      background: linear-gradient(135deg, #16213e, #0f3460);
+      padding: 20px 0;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+    
+    .logo {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #e94560;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      margin-bottom: 10px;
+    }
+    
+    .tagline {
+      font-size: 1.2rem;
+      color: #a1c4fd;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .game-card {
+      background: linear-gradient(145deg, #1f1f3d, #16213e);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .game-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    }
+    
+    .game-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-bottom: 3px solid #e94560;
+    }
+    
+    .game-info {
+      padding: 20px;
+    }
+    
+    .game-title {
+      font-size: 1.5rem;
+      color: #e94560;
+      margin-bottom: 10px;
+    }
+    
+    .game-description {
+      color: #b8c2cc;
+      margin-bottom: 15px;
+      line-height: 1.5;
+    }
+    
+    .play-btn {
+      display: inline-block;
+      background: linear-gradient(to right, #e94560, #f78259);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    
+    .play-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(233, 69, 96, 0.4);
+    }
+    
+    footer {
+      background: #0f3460;
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+    }
+    
+    .footer-text {
+      color: #a1c4fd;
+    }
+    
+    @media (max-width: 768px) {
+      .games-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .logo {
+        font-size: 2rem;
+      }
+      
+      .tagline {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">GameZone</div>
+    <div class="tagline">Play the best HTML5 games for free!</div>
+  </header>
+  
+  <div class="container">
+    <div class="games-grid">
+      <!-- Tom vs Jerry Game Card -->
+      <a href="#tom-jerry-game" class="/tom-jerry.html">
+      <div class="game-card">
+        <img src="https://iili.io/37jWioF.jpg" alt="Tom vs Jerry Game" class="game-image">
+        <div class="game-info">
+          <h3 class="game-title">Tom vs Jerry</h3>
+          <p class="game-description">
+            Help Tom catch Jerry in this classic snake game! Navigate through the house, 
+            collect cheese to grow longer, and avoid obstacles. How high can you score?
+          </p>
+          <span class="play-btn">Play Now</span>
+        </div>
+      </div>
+    </a>
+
+      
+      <!-- Coming Soon Game Cards -->
+      <div class="game-card">
+        <img src="https://freeimage.host/i/3YCYhu4" alt="Coming Soon" class="game-image">
+        <div class="game-info">
+          <h3 class="game-title">Space Invaders</h3>
+          <p class="game-description">
+            Defend Earth from alien invaders in this action-packed arcade shooter. 
+            Coming soon to GameZone!
+          </p>
+          <a href="#" class="play-btn" style="background: #666; pointer-events: none;">Coming Soon</a>
+        </div>
+      </div>
+      
+      <div class="game-card">
+        <img src="https://freeimage.host/i/3YCYhu4" alt="Coming Soon" class="game-image">
+        <div class="game-info">
+          <h3 class="game-title">Memory Match</h3>
+          <p class="game-description">
+            Test your memory with this fun matching game featuring your favorite characters. 
+            Coming soon!
+          </p>
+          <a href="#" class="play-btn" style="background: #666; pointer-events: none;">Coming Soon</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Tom vs Jerry Game Section (hidden by default) -->
+  <div id="tom-jerry-game" style="display: none;">
+    <!-- The entire Tom vs Jerry game code from earlier would go here -->
+    <!-- When the user clicks "Play Now", you would hide the homepage and show this section -->
+  </div>
+  
+  <footer>
+    <p class="footer-text">© 2023 GameZone - All Rights Reserved</p>
+  </footer>
+
+  <script>
+    // Simple navigation to show/hide game when Play button is clicked
+    document.addEventListener('DOMContentLoaded', function() {
+      const playButtons = document.querySelectorAll('.play-btn');
+      
+      playButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+          if (this.textContent === 'Play Now') {
+            e.preventDefault();
+            const gameId = this.getAttribute('href').substring(1);
+            const gameSection = document.getElementById(gameId);
+            
+            if (gameSection) {
+              document.querySelector('.container').style.display = 'none';
+              document.querySelector('header').style.display = 'none';
+              document.querySelector('footer').style.display = 'none';
+              gameSection.style.display = 'block';
+              
+              // Here you would initialize the game
+              // For Tom vs Jerry, you would create a new instance of the game class
+            }
+          }
+        });
+      });
+      
+      // You would also need logic to return to the homepage from the game
+      // This would be handled by the game's "Home" button
+    });
+  </script>
+</body>
+</html>
