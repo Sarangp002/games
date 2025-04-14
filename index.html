@@ -32,6 +32,11 @@
       margin-bottom: 10px;
     }
     
+    .logo a {
+      color: inherit;
+      text-decoration: none;
+    }
+    
     .tagline {
       font-size: 1.2rem;
       color: #a1c4fd;
@@ -102,6 +107,23 @@
       box-shadow: 0 4px 12px rgba(233, 69, 96, 0.4);
     }
     
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .social-links a {
+      color: #a1c4fd;
+      font-size: 1.2rem;
+      transition: color 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      color: #e94560;
+    }
+    
     footer {
       background: #0f3460;
       text-align: center;
@@ -111,6 +133,22 @@
     
     .footer-text {
       color: #a1c4fd;
+    }
+    
+    .footer-links {
+      margin-top: 10px;
+    }
+    
+    .footer-links a {
+      color: #e94560;
+      text-decoration: none;
+      margin: 0 10px;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: #f78259;
+      text-decoration: underline;
     }
     
     @media (max-width: 768px) {
@@ -130,14 +168,13 @@
 </head>
 <body>
   <header>
-    <div class="logo">GameZone</div>
+    <div class="logo"><a href="#">GameZone</a></div>
     <div class="tagline">Play the best games for free!</div>
   </header>
   
   <div class="container">
     <div class="games-grid">
       <!-- Tom vs Jerry Game Card -->
-      <a href="#tom-jerry-game" class="/games/tom-jerry.html">
       <div class="game-card">
         <img src="https://iili.io/37jWioF.jpg" alt="Tom vs Jerry Game" class="game-image">
         <div class="game-info">
@@ -146,11 +183,9 @@
             Help Tom catch Jerry in this classic game! Navigate through the house, 
             collect cheese to grow longer, and avoid walls. How high can you score?
           </p>
-          <span class="play-btn">Play Now</span>
+          <a href="/tom-jerry.html" class="play-btn">Play Now</a>
         </div>
       </div>
-    </a>
-
       
       <!-- Coming Soon Game Cards -->
       <div class="game-card">
@@ -177,45 +212,35 @@
         </div>
       </div>
     </div>
-  </div>
-  
-  <!-- Tom vs Jerry Game Section (hidden by default) -->
-  <div id="tom-jerry-game" style="display: none;">
-    <!-- The entire Tom vs Jerry game code from earlier would go here -->
-    <!-- When the user clicks "Play Now", you would hide the homepage and show this section -->
+    
+    <div class="social-links">
+      <a href="https://facebook.com" target="_blank" aria-label="Facebook">📘</a>
+      <a href="https://twitter.com" target="_blank" aria-label="Twitter">🐦</a>
+      <a href="https://instagram.com" target="_blank" aria-label="Instagram">📷</a>
+      <a href="mailto:contact@gamezone.com" aria-label="Email">✉️</a>
+    </div>
   </div>
   
   <footer>
     <p class="footer-text">© 2023 GameZone - All Rights Reserved</p>
+    <div class="footer-links">
+      <a href="about.html">About Us</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="contact.html">Contact</a>
+    </div>
   </footer>
 
   <script>
     // Simple navigation to show/hide game when Play button is clicked
     document.addEventListener('DOMContentLoaded', function() {
-      const playButtons = document.querySelectorAll('.play-btn');
-      
-      playButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-          if (this.textContent === 'Play Now') {
-            e.preventDefault();
-            const gameId = this.getAttribute('href').substring(1);
-            const gameSection = document.getElementById(gameId);
-            
-            if (gameSection) {
-              document.querySelector('.container').style.display = 'none';
-              document.querySelector('header').style.display = 'none';
-              document.querySelector('footer').style.display = 'none';
-              gameSection.style.display = 'block';
-              
-              // Here you would initialize the game
-              // For Tom vs Jerry, you would create a new instance of the game class
-            }
-          }
-        });
+      // Logo link to refresh the homepage
+      document.querySelector('.logo a').addEventListener('click', function(e) {
+        e.preventDefault();
+        window.location.href = 'index.html';
       });
       
-      // You would also need logic to return to the homepage from the game
-      // This would be handled by the game's "Home" button
+      // You can add more JavaScript functionality here as needed
     });
   </script>
 </body>
